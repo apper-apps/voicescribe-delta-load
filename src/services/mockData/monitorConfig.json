@@ -1,0 +1,6 @@
+{
+  "inputDirectory": "/Users/Documents/Audio/Input",
+  "outputDirectory": "/Users/Documents/Audio/Output",
+  "autoTranscribe": true,
+  "fileTypes": [".mp3", ".mp4", ".wav", ".m4a"]
+}
