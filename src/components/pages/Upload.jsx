@@ -4,17 +4,17 @@ import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
 import FileDropZone from "@/components/molecules/FileDropZone";
+import DirectorySelector from "@/components/molecules/DirectorySelector";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
 import transcriptionService from "@/services/api/transcriptionService";
-
 const Upload = () => {
   const [recentUploads, setRecentUploads] = useState([]);
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
-
+  const [outputPath, setOutputPath] = useState("/Users/Documents/Audio/Output");
   useEffect(() => {
     loadRecentUploads();
   }, []);
@@ -42,7 +42,7 @@ const Upload = () => {
         const transcription = {
           fileName: file.name,
           inputPath: `/uploads/${file.name}`,
-          outputPath: "",
+outputPath: outputPath || "/Users/Documents/Audio/Output",
           status: "processing",
           progress: 0,
           speakers: [],
@@ -95,8 +95,7 @@ const Upload = () => {
           Upload MP3 or MP4 files to start transcription with automatic speaker identification
         </p>
       </div>
-
-      {/* Upload Zone */}
+{/* Upload Zone */}
       <Card className="p-6">
         <FileDropZone 
           onFileSelect={handleFileSelect}
@@ -118,6 +117,14 @@ const Upload = () => {
         )}
       </Card>
 
+      {/* Output Directory Configuration */}
+      <div className="mt-6">
+        <DirectorySelector
+          type="output"
+          value={outputPath}
+          onChange={setOutputPath}
+        />
+      </div>
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="p-4 text-center hover:shadow-md transition-shadow">
