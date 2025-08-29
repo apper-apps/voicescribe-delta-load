@@ -3,7 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/utils/cn";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-import { AuthContext } from "../App";
+import { AuthContext } from "../../App";
 
 const LogoutButton = () => {
   const { logout } = useContext(AuthContext);
