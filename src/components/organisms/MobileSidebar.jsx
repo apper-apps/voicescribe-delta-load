@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
-import { AuthContext } from "../App";
+import { AuthContext } from "../../App";
 
 const MobileLogoutButton = () => {
   const { logout } = useContext(AuthContext);
