@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/utils/cn";
 import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import { AuthContext } from "../App";
 
+const LogoutButton = () => {
+  const { logout } = useContext(AuthContext);
+  
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={logout}
+      className="p-1"
+    >
+      <ApperIcon name="LogOut" className="w-4 h-4" />
+    </Button>
+  );
+};
 const Sidebar = () => {
   const location = useLocation();
 
@@ -56,16 +72,19 @@ const Sidebar = () => {
           })}
         </nav>
 
-        {/* Footer */}
+{/* Footer */}
         <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-              <ApperIcon name="User" className="w-4 h-4 text-gray-600" />
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                <ApperIcon name="User" className="w-4 h-4 text-gray-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-900">Audio Pro</p>
+                <p className="text-xs text-gray-500">Professional Plan</p>
+              </div>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900">Audio Pro</p>
-              <p className="text-xs text-gray-500">Professional Plan</p>
-            </div>
+            <LogoutButton />
           </div>
         </div>
       </div>

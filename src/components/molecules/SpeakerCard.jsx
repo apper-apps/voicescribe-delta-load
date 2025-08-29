@@ -96,7 +96,7 @@ const SpeakerCard = ({
         ) : (
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="font-semibold text-gray-900">{speaker.name}</h4>
+<h4 className="font-semibold text-gray-900">{speaker.name}</h4>
               <p className="text-sm text-gray-500">
                 {speaker.clipDuration}s clip • Added {new Date(speaker.createdAt).toLocaleDateString()}
               </p>

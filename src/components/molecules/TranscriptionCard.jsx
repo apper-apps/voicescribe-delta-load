@@ -39,7 +39,7 @@ const TranscriptionCard = ({
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="flex-1 min-w-0">
-            <h4 className="font-semibold text-gray-900 truncate">
+<h4 className="font-semibold text-gray-900 truncate">
               {transcription.fileName}
             </h4>
             <p className="text-sm text-gray-500 mt-1">

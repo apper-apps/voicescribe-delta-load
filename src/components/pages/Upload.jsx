@@ -39,10 +39,10 @@ const [loading, setLoading] = useState(true);
       setUploading(true);
       
       for (const file of files) {
-        const transcription = {
+const transcription = {
           fileName: file.name,
           inputPath: `/uploads/${file.name}`,
-outputPath: outputPath || "/Users/Documents/Audio/Output",
+          outputPath: outputPath || "/Users/Documents/Audio/Output",
           status: "processing",
           progress: 0,
           speakers: [],
